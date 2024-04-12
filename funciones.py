@@ -3,6 +3,7 @@ from tarea import connect_db, insert_db, select_db, count_localidades, create_db
 
 
 def super_funcion():
+    print("LA SUPER FUNCION HA SIDO EJECUTADA")
     def read_csv():
         with open('localidades.csv', mode='r')as read:
             reader = c.DictReader(read)
@@ -48,11 +49,11 @@ def super_funcion():
                     writer.writerow({'localidad': localidad[2]})
             
             with open(f'{provincia}.csv', mode='a', encoding='utf-8', newline='') as f:
-                fieldnames = ['Total']
+                fieldnames = ['Total de localidades']
                 writer = c.DictWriter(f, fieldnames=fieldnames)
                 writer.writeheader()
                 for pro_total, total in provincia_total.items():
                     if provincia == pro_total:
-                        writer.writerow({'Total': total})
+                        writer.writerow({'Total de localidades': total})
     create_csv()
     read_csv()
